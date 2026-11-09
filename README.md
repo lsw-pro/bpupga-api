@@ -1,38 +1,42 @@
-# BPUPGA API documentation
+# BPUPGA API
 
-Static documentation for the BPUPGA local Python API, prepared for GitHub Pages.
+Unsupervised bilateral partial graph alignment: Python API documentation, tutorials, source snapshots, and runnable examples.
 
-Expected website after enabling Pages: <https://lsw528.github.io/bpupga-api/>
+全部文档均可直接在本 GitHub 仓库阅读，无需跳转到独立网站。
 
-Source page: <https://lsw528.github.io/bpupga-api/source.html> (also accepts `source/`).
+**Start here:** [Installation](guide/installation.md) · [Quick start](guide/quickstart.md) · [Python API](guide/api.md) · [Source code](guide/source.md) · [Examples](examples/README.md)
 
-The website is public and visitors do not need a GitHub or ChatGPT account.
-Publishing still requires a repository owner to configure Pages once.
+## Documentation
 
-## Publish
+| Guide | Contents |
+| --- | --- |
+| [Overview](guide/index.md) | Scope, workflow, and documentation map |
+| [Installation](guide/installation.md) | Environment, imports, and local installation |
+| [Quick start](guide/quickstart.md) | Toy example and prepared benchmark examples |
+| [Datasets & construction](guide/datasets.md) | Graph files, identifiers, partial overlap, and natural pairs |
+| [Algorithms](guide/algorithms.md) | Twelve methods, parameters, execution settings, and custom adapters |
+| [Evaluation](guide/evaluation.md) | Pair recovery, node matchability, ranking, and incomplete references |
+| [Diagnostics](guide/diagnostics.md) | Error decomposition and reference-assisted diagnostics |
+| [Saved runs & resources](guide/logs.md) | Saved metrics, status, resources, and local JSON inspection |
+| [Custom algorithms](guide/extending.md) | Register a graph-only adapter and optional outputs |
+| [Python API reference](guide/api.md) | Signatures, parameters, defaults, returns, exceptions, and source lines |
+| [Troubleshooting](guide/faq.md) | Imports, dependencies, devices, outputs, and metric errors |
+| [Source code](guide/source.md) | Facade implementation and shared result/data records |
 
-1. Keep this repository **Public**.
-2. Open **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch **main** and folder **/docs**, then **Save**.
-5. Wait for the Pages deployment, then use the **Visit site** link.
+## Find a topic
 
-The `.nojekyll` file keeps these prebuilt files unchanged. No Python server,
-package installation, access token in website code, or frontend login is needed.
-Later commits to `main/docs` update the website automatically.
+Open the [complete documentation index](guide/documentation-index.md) and use **Ctrl+F / Command+F**. GitHub's **Outline** menu also lists the sections on each documentation page.
 
-## Contents
+## Examples and source
 
-- Twelve documentation pages with the original navigation and search.
-- API signatures, parameters, returns, errors and source line anchors.
-- Python examples and `examples.zip` downloads.
-- The original local JSON run inspector, which reads visitor-selected files in
-  the browser; it does not submit remote benchmark jobs.
+- [Self-contained toy example](examples/toy_example.py)
+- [All 48 prepared method/dataset combinations](examples/README.md)
+- [Download the examples](examples/examples.zip)
+- [Facade source with native line numbers](src/bpupga/_api.py)
+- [Shared dataset record](src/records/AlignmentDataset.py) and [alignment result](src/records/AlignmentResult.py)
 
-This repository contains the documentation and the facade source snapshot shown
-on the source page. The examples that run actual models require the complete
-research checkout and its method dependencies, as explained by the installation
-page. This documentation repository is not a standalone model distribution.
+## Execution requirements
 
-Only the exported `docs/` files and this README are needed for publication.
-The existing ChatGPT-hosted site is a separate deployment.
+This repository contains documentation, source snapshots, and examples. Running the built-in models requires the complete BPUPGA research checkout, existing data, and method dependencies described in [Installation](guide/installation.md). This repository alone is not a standalone release of all models or datasets.
+
+The toy example illustrates the API with temporary data and a custom adapter; it is not a benchmark result. Reference information is used for evaluation and explicitly labeled diagnostics, not passed to unsupervised fitting.
